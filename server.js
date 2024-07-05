@@ -14,7 +14,14 @@ server.get('/', (req, res) => {
 server.get('/ports', (req, res) => {
    execSh('ufw status numbered', true, (err, stdout, stderr) => {
       if(err) res.json({ error: stderr });
-      else res.send(stdout);
+      else res.send({ success: stdout });
+   });
+});
+
+server.post('/delete/:rule', (req, res) => {
+   execSh('yes | ufw delete ' + req.params.rule, true, (err, stdout, stderr) => {
+      if(err) res.json({ error: stderr });
+      else res.send({ success: stdout });
    });
 });
 

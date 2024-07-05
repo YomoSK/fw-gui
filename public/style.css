@@ -22,44 +22,41 @@ input {
    margin: 0;
 }
 
-table {
-   border-collapse: collapse;
-   text-align: right;
-   width: 800px;
+p {
+   margin: 0;
 }
 
-table tr th {
+#table {
+   width: 800px;
+   display: flex;
+   flex-direction: column;
+}
+
+#table > div:first-child {
    padding: .4rem 1rem .3rem;
+   border: none !important;
+   background: none !important;
    font-family: 'Inter', sans-serif;
    font-weight: 700;
    opacity: .6;
 }
 
-table tr {
+#table > div {
+   display: grid;
+   grid-template-columns: 14px 100px repeat(3, 1fr);
+   gap: 1rem;
    background: #fff;
    border: 1px solid #e7e7e7;
    border-bottom: none;
    border-top: none;
-   transition: all .25s;
-}
-
-table tr:first-child {
-   background: transparent;
-   border-left: none;
-   border-right: none;
-}
-
-table tr:last-child {
-   border-bottom: 1px solid #e7e7e7;
-}
-
-table tr td {
-   padding: .75rem 1.25rem;
    font-weight: 500;
+   text-align: center;
+   transition: all .25s;
+   padding: .75rem 1.25rem;
 }
 
-table tr td:first-child {
-   width: 14px;
+#table > div > p:last-child {
+   text-align: right;
 }
 
 button {
